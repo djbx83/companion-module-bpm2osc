@@ -61,7 +61,7 @@ $utf8NoBom = New-Object System.Text.UTF8Encoding $false
 [System.IO.File]::WriteAllText("$moduleDir\pkg\package.json", $minPkg, $utf8NoBom)
 
 # ── 6. Create .tgz ────────────────────────────────────────────────────────────
-$tgzName = "$($manifest.id)-$($manifest.version).tgz"
+$tgzName = "$($manifest.manufacturer)-$($manifest.name)-v$($manifest.version).tgz"
 if (Test-Path "$moduleDir\$tgzName") { Remove-Item "$moduleDir\$tgzName" -Force }
 tar -czf $tgzName pkg
 
